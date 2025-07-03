@@ -1,0 +1,8 @@
+npx @tailwindcss/cli -i ./views/input.css -o ./public/output.css --watch
+
+
+<body>
+
+</body>
+
+</html>

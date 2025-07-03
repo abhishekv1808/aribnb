@@ -1,0 +1,214 @@
+<%- include('../partials/head.ejs')%>
+
+    <body class="bg-gray-100 min-h-screen">
+        <%- include('../partials/navbar.ejs')%>
+
+
+            <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+                <!-- Welcome Section -->
+                <div class="mb-8">
+                    <h1 class="text-3xl font-bold text-gray-900">Welcome back, Admin!</h1>
+                    <p class="text-gray-600 mt-2">Here's what's happening with your properties today.</p>
+                </div>
+
+                <!-- Stats Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                    <!-- Registered Properties Card -->
+                    <div
+                        class="bg-red-500 rounded-xl p-6 text-white shadow-lg transform hover:scale-105 transition-transform duration-200">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-blue-100 text-sm font-medium">Registered Properties</p>
+                                <p class="text-3xl font-bold mt-2">
+                                    <%= registerHomes.length%>
+                                </p>
+                                <p class="text-blue-100 text-sm mt-1">+3 this month</p>
+                            </div>
+                            <div class="bg-white bg-opacity-20 rounded-lg p-3">
+                                <i data-lucide="building" class="h-8 w-8"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Total Bookings Card -->
+                    <div
+                        class="bg-red-500 rounded-xl p-6 text-white shadow-lg transform hover:scale-105 transition-transform duration-200">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-pink-100 text-sm font-medium">Total Bookings</p>
+                                <p class="text-3xl font-bold mt-2">187</p>
+                                <p class="text-pink-100 text-sm mt-1">+12 this week</p>
+                            </div>
+                            <div class="bg-white bg-opacity-20 rounded-lg p-3">
+                                <i data-lucide="calendar-check" class="h-8 w-8"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Total Earnings Card -->
+                    <div
+                        class="bg-red-500 rounded-xl p-6 text-white shadow-lg transform hover:scale-105 transition-transform duration-200">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-cyan-100 text-sm font-medium">Total Earnings</p>
+                                <p class="text-3xl font-bold mt-2">$45,760</p>
+                                <p class="text-cyan-100 text-sm mt-1">+8.2% from last month</p>
+                            </div>
+                            <div class="bg-white bg-opacity-20 rounded-lg p-3">
+                                <i data-lucide="dollar-sign" class="h-8 w-8"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Main Content Grid -->
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                    <!-- Profile Section -->
+                    <div class="lg:col-span-2">
+                        <div class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
+                            <div class="profile-card px-6 py-8 text-white">
+                                <div class="flex items-center justify-between">
+                                    <div class="flex items-center">
+                                        <div class="bg-white bg-opacity-20 rounded-full ">
+                                            <i data-lucide="user" class="h-12 w-12"></i>
+                                        </div>
+                                        <div class="flex items-center">
+                                            <img src="data:image/jpeg;base64,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"
+                                                alt="Admin Profile"
+                                                class="w-16 h-16 rounded-full object-cover border-2 border-white shadow mr-4">
+                                            <div>
+                                                <h2 class="text-2xl font-bold text-black">Admin Profile</h2>
+                                                <p class="text-black">Manage your account details</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <a
+                                        class="cursor-pointer text-center bg-red-500 bg-opacity-20 hover:bg-opacity-30 rounded-lg px-8 py-2 flex items-center transition-colors">
+
+                                        <span id="edit-btn-text">Edit</span>
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div class="p-6">
+                                <div id="profile-view" class="space-y-4">
+                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                        <div>
+                                            <label class="block text-sm font-medium text-gray-700 mb-1">Full
+                                                Name</label>
+                                            <p class="text-gray-900 font-semibold" id="display-name">John Anderson</p>
+                                        </div>
+                                        <div>
+                                            <label class="block text-sm font-medium text-gray-700 mb-1">Role</label>
+                                            <p class="text-gray-900 font-semibold">Property Manager</p>
+                                        </div>
+                                        <div>
+                                            <label class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                                            <p class="text-gray-900 font-semibold" id="display-email">
+                                                john.anderson@propmanager.com
+                                            </p>
+                                        </div>
+                                        <div>
+                                            <label class="block text-sm font-medium text-gray-700 mb-1">Phone</label>
+                                            <p class="text-gray-900 font-semibold" id="display-phone">+1 (555) 123-4567
+                                            </p>
+                                        </div>
+                                        <div>
+                                            <label class="block text-sm font-medium text-gray-700 mb-1">Joined
+                                                Date</label>
+                                            <p class="text-gray-900 font-semibold">January 2023</p>
+                                        </div>
+                                        <div>
+                                            <label class="block text-sm font-medium text-gray-700 mb-1">Status</label>
+                                            <span
+                                                class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">Active</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Action Buttons Section -->
+                    <div class="space-y-6">
+                        <!-- Quick Actions Card -->
+                        <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
+                            <h3 class="text-lg font-semibold text-gray-900 mb-4 flex items-center">
+                                <i data-lucide="zap" class="h-5 w-5 mr-2 text-yellow-600"></i>
+                                Quick Actions
+                            </h3>
+                            <div class="space-y-3">
+                                <a href="/admin-homes"
+                                    class="cursor-pointer w-full bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white px-6 py-3 rounded-lg font-medium transition-all duration-200 transform hover:scale-105 flex items-center justify-center">
+                                    <i data-lucide="eye" class="h-5 w-5 mr-2"></i>
+                                    View Registered Properties
+                                </a>
+                                <a href="/register-home"
+                                    class="cursor-pointer w-full bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 text-white px-6 py-3 rounded-lg font-medium transition-all duration-200 transform hover:scale-105 flex items-center justify-center">
+                                    Register New Property
+                                </a>
+                            </div>
+                        </div>
+
+
+
+                        <!-- Recent Activity Card -->
+                        <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
+                            <h3 class="text-lg font-semibold text-gray-900 mb-4 flex items-center">
+                                <i data-lucide="activity" class="h-5 w-5 mr-2 text-purple-600"></i>
+                                Recent Activity
+                            </h3>
+                            <div class="space-y-3">
+                                <div class="flex items-center p-3 bg-gray-50 rounded-lg">
+                                    <div class="bg-green-100 rounded-full p-2 mr-3">
+                                        <i data-lucide="check" class="h-4 w-4 text-green-600"></i>
+                                    </div>
+                                    <div class="flex-1">
+                                        <p class="text-sm font-medium text-gray-900">New booking received</p>
+                                        <p class="text-xs text-gray-500">2 hours ago</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center p-3 bg-gray-50 rounded-lg">
+                                    <div class="bg-blue-100 rounded-full p-2 mr-3">
+                                        <i data-lucide="home" class="h-4 w-4 text-blue-600"></i>
+                                    </div>
+                                    <div class="flex-1">
+                                        <p class="text-sm font-medium text-gray-900">Property verified</p>
+                                        <p class="text-xs text-gray-500">5 hours ago</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center p-3 bg-gray-50 rounded-lg">
+                                    <div class="bg-yellow-100 rounded-full p-2 mr-3">
+                                        <i data-lucide="dollar-sign" class="h-4 w-4 text-yellow-600"></i>
+                                    </div>
+                                    <div class="flex-1">
+                                        <p class="text-sm font-medium text-gray-900">Payment received</p>
+                                        <p class="text-xs text-gray-500">1 day ago</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+            </main>
+
+
+
+
+
+
+
+
+
+
+
+
+    </body>
+
+
+
+    </html>

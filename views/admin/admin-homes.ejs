@@ -1,0 +1,44 @@
+<%- include('../partials/head.ejs')%>
+
+    <body>
+        <%- include('../partials/navbar.ejs')%>
+
+            <main>
+                <section class="p-8">
+                    <h2 class="text-2xl font-bold mb-6">Manage Registered Homes</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <% registeredHomes.forEach(home=> { %>
+                            <div class="bg-white shadow rounded-lg overflow-hidden">
+                                <img src="<%= home.imageURL %>" alt="<%= home.houseName %>"
+                                    class="h-48 w-full object-cover">
+                                <div class="p-4">
+                                    <h3 class="text-xl font-semibold">
+                                        <%= home.houseName %>
+                                    </h3>
+                                    <p class="text-gray-600">
+                                        <%= home.location %>
+                                    </p>
+                                    <div class="mt-4 flex justify-between">
+
+                                        <a href="/edit-home/<%= home._id %>?editing=true "
+                                            class="bg-yellow-500 text-white px-3 py-1 rounded hover:bg-yellow-600">
+                                            Edit
+                                        </a>
+
+
+                                        <a href="/delete-home/<%= home._id%>"
+                                            class="bg-red-600 text-white px-3 py-1 rounded hover:bg-red-700">
+                                            Delete
+                                        </a>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <% }) %>
+                    </div>
+                </section>
+            </main>
+
+    </body>
+
+    </html>

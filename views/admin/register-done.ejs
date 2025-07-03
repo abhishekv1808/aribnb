@@ -1,0 +1,36 @@
+<%- include('../partials/head.ejs')%>
+
+    <body>
+        <%- include('../partials/navbar.ejs')%>
+
+            <main>
+                <section class="min-h-screen flex items-center justify-center bg-gray-100 p-6">
+                    <div class="bg-white rounded-lg shadow-lg p-8 max-w-md w-full text-center">
+                        <div class="flex justify-center mb-4">
+                            <svg class="w-16 h-16 text-green-500" fill="none" stroke="currentColor" stroke-width="2"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M9 12l2 2 4-4m5 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                        </div>
+                        <h2 class="text-2xl font-bold text-gray-800 mb-2">Home Registered Successfully!</h2>
+                        <p class="text-gray-600 mb-6">Your property has been added to the listings. You can now manage
+                            bookings and updates from the dashboard.</p>
+
+                        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                            <a href="/admin-portal"
+                                class="bg-blue-500 hover:bg-blue-600 text-white px-6 py-2 rounded-md font-semibold">Go
+                                to admin portal</a>
+                            <a href="/register-home"
+                                class="bg-gray-200 hover:bg-gray-300 text-gray-800 px-6 py-2 rounded-md font-semibold">Register
+                                Another Home</a>
+                        </div>
+                    </div>
+                </section>
+
+            </main>
+
+
+    </body>
+
+    </html>
